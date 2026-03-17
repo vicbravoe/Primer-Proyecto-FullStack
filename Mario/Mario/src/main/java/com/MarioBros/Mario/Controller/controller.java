@@ -8,7 +8,7 @@ public class controller {
 
     @GetMapping("/luigi")
     public String MarioBros() {
-        return "Mario y Luigi son distintas versiones de Phineas y Ferb :)";
+        return "Mario y Luigi son mejores versiones de Phineas y Ferb :)";
     }
     
 }
