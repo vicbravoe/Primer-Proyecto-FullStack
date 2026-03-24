@@ -25,4 +25,25 @@ public class VideojuegoRepository {
         public void agregarJuego(String nombre) {
             juegos.add(nombre);
         }
+
+        // METODO PARA ELIMINAR (DELETE)
+        public void eliminarJuego(String nombre) {
+            juegos.remove(nombre);
+        }
+
+        // METODO PARA MODIFICAR (PUT)
+        public void modificarJuego(String antiguo, String nuevo) {
+            int index = juegos.indexOf(antiguo);
+            if (index != -1) {
+                juegos.set(index, nuevo);
+            }
+        }
+
+        // METODO BUSCA POR NOMBRE (GET)
+        public String buscarJuego(String nombre) {
+            if (juegos.contains(nombre)) {
+                return nombre;
+            }
+            return "No encontrado";
+        }
 }

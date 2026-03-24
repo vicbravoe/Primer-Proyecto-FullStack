@@ -4,8 +4,13 @@ import com.videojuegos.microservicio.service.VideojuegoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.GetMapping;
 
 
 @RestController
@@ -29,5 +34,26 @@ public class VideojuegoController {
         service.agregar(nombre);
         return "Juego agregado";
     }
+
+    @DeleteMapping("/eliminar/{nombre}")
+    public String eliminar(@PathVariable String nombre) {
+        service.eliminar(nombre);
+        return "Juego eliminado";
+    }
+
+    @PutMapping("modificar")
+    public String modificar(@RequestBody Map<String, String> body) {
+        String antiguo = body.get("antiguo");
+        String nuevo = body.get("nuevo");
+
+        service.modificar(antiguo, nuevo);
+        return "Juego modificado";
+    }
+
+    @GetMapping("buscar/{nombre}")
+    public String buscar(@PathVariable String nombre) {
+        return service.buscar(nombre);
+    }
+    
     
 }

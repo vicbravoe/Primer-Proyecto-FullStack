@@ -21,4 +21,16 @@ public class VideojuegoService {
     public void agregar(String nombre) {
         repository.agregarJuego(nombre);
     }
+
+    public void eliminar(String nombre) {
+        repository.eliminarJuego(nombre);
+    }
+
+    public void modificar(String antiguo, String nuevo) {
+        repository.modificarJuego(antiguo, nuevo);
+    }
+
+    public String buscar(String nombre) {
+        return repository.buscarJuego(nombre);
+    }
 }
